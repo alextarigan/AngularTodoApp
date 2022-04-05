@@ -1,0 +1,19 @@
+<form>
+    <div class="input-group mb-3">
+        <input
+            type="text"
+            name="inputTodo"
+            placeholder="Masukkan todo..."
+            class="form-control"
+            [(ngModel)]="inputTodo"
+
+        />
+        <input
+            type="submit"
+            value="Tambahkan Todo"
+            class="btn btn-dark"
+            *ngIf="inputTodo.length>1"
+            (click)="addTodo()"
+        />
+    </div>
+</form>

@@ -1,0 +1,37 @@
+<app-add-todo-form (newTodoEvent)="addTodo($event)"
+></app-add-todo-form>
+
+<p style="font-size: 30px;">Todo List</p>
+<p *ngIf="todos.length == 0">Kamu belum memiliki kegiatan apapun untuk dilakukan.</p>
+<ol *ngFor="let todo of todos let i = index;" class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-3 me-auto">
+            <div class="content {{(todo.completed ? 'done' : '')}}">
+                {{i + 1}}. {{todo.content}}
+            </div>
+        </div>
+        <button class="btn btn-success btn-sm completed" (click)="toggleDone(i)">
+            <i class="bi bi-check-circle"></i>
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteTodo(i)">
+            <i class="bi bi-trash-fill"></i>
+        </button>
+    </li>
+</ol>
+<p style="font-size: 30px;">Todo Done</p>
+<p *ngIf="todone.length == 0">Kamu belum menyelesaikan kegiatan apapun.</p>
+<ol *ngFor="let todones of todone let i = index;" class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-3 me-auto">
+            <div class="content {{(todones.completed)}}">
+                {{i + 1}}. {{todones.content}}
+            </div>
+        </div>
+        <button class="btn btn-success btn-sm completed" (click)="toggleDone(i)">
+            <i class="bi bi-check-circle"></i>
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteTodone(i)">
+            <i class="bi bi-trash-fill"></i>
+        </button>
+    </li>
+</ol>
